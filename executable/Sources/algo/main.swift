@@ -23,5 +23,16 @@ func sortUsingMergeSort() {
     assert(sorted.first == firstItem)
 }
 
+func sortUsingBucketSort() {
+    let startTime = Date()
+    let sorted = bucketSorted(array: array)
+    let duration = Date().timeIntervalSince(startTime)
+    print("bucket sort duration \(duration)")
+
+    assert(sorted.first == firstItem)
+}
+
+
 sortUsingDefault()
 sortUsingMergeSort()
+sortUsingBucketSort()
