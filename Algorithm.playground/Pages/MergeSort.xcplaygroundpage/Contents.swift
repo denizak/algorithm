@@ -5,7 +5,7 @@ import Foundation
 let firstItem = 1
 let lastItem = 2000
 
-func mergeSorted(array: [Int]) -> [Int] {
+func mergeSorted<T: Comparable>(array: [T]) -> [T] {
     let middleIndex = array.count / 2
     let lhs = Array(array[0..<middleIndex])
     let rhs = Array(array[middleIndex..<array.count])
@@ -16,10 +16,10 @@ func mergeSorted(array: [Int]) -> [Int] {
     return mergeAndSort(lhs: sortedLhs, rhs: sortedRhs)
 }
 
-private func mergeAndSort(lhs: [Int], rhs: [Int]) -> [Int] {
+private func mergeAndSort<T: Comparable>(lhs: [T], rhs: [T]) -> [T] {
     var lhsIndex = 0
     var rhsIndex = 0
-    var sortedArray = [Int]()
+    var sortedArray = [T]()
 
     while lhsIndex < lhs.count && rhsIndex < rhs.count {
         if lhs[lhsIndex] < rhs[rhsIndex] {
@@ -46,8 +46,8 @@ private func mergeAndSort(lhs: [Int], rhs: [Int]) -> [Int] {
 }
 
 func assertCorrectness(sorted: [Int]) -> Bool {
-    return sorted.first == firstItem
-        && sorted.last == lastItem
+    return sorted.first! == firstItem
+        && sorted.last! == lastItem
 }
 
 let array = (firstItem...lastItem).shuffled()
