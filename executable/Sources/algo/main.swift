@@ -32,7 +32,16 @@ func sortUsingBucketSort() {
     assert(sorted.first == firstItem)
 }
 
+func sortUsingQuickSort() {
+    let startTime = Date()
+    let sorted = quickSorted(array: array)
+    let duration = Date().timeIntervalSince(startTime)
+    print("quick sort duration \(duration)")
+
+    assert(sorted.first == firstItem)
+}
 
 sortUsingDefault()
 sortUsingMergeSort()
 sortUsingBucketSort()
+sortUsingQuickSort()
