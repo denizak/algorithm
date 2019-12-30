@@ -38,9 +38,21 @@ final class libTests: XCTestCase {
         }
     }
 
+    func testInsertionSort() {
+        let array = (firstItem...lastItem).shuffled()
+
+        measure {
+            let sorted = insertionSorted(array: array)
+
+            XCTAssertEqual(sorted.first, firstItem)
+            XCTAssertEqual(sorted.last, lastItem)
+        }
+    }
+
     static var allTests = [
         ("testQuickSort", testQuickSort),
         ("testMergeSort", testMergeSort),
         ("testBucketSort", testBucketSort),
+        ("testInsertionSort", testInsertionSort),
     ]
 }
