@@ -9,8 +9,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Go to lib folder
-      run: cd lib
     - name: Build
       run: swift build -v
     - name: Run tests
