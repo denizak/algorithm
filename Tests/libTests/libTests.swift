@@ -60,11 +60,23 @@ final class libTests: XCTestCase {
         }
     }
 
+    func testRadixSort() {
+        let array = (firstItem...lastItem).shuffled()
+
+        measure {
+            let sorted = radixSorted(array: array)
+
+            XCTAssertEqual(sorted.first, firstItem)
+            XCTAssertEqual(sorted.last, lastItem)
+        }
+    }
+
     static var allTests = [
         ("testQuickSort", testQuickSort),
         ("testMergeSort", testMergeSort),
         ("testBucketSort", testBucketSort),
         ("testInsertionSort", testInsertionSort),
         ("testBogoSort", testBogoSort),
+        ("testRadixSort", testRadixSort),
     ]
 }
