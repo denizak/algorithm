@@ -49,10 +49,22 @@ final class libTests: XCTestCase {
         }
     }
 
+    func testBogoSort() {
+        let array = (1...5).shuffled()
+
+        measure {
+            let sorted = bogoSorted(array: array)
+
+            XCTAssertEqual(sorted.first, 1)
+            XCTAssertEqual(sorted.last, 10)
+        }
+    }
+
     static var allTests = [
         ("testQuickSort", testQuickSort),
         ("testMergeSort", testMergeSort),
         ("testBucketSort", testBucketSort),
         ("testInsertionSort", testInsertionSort),
+        ("testBogoSort", testBogoSort),
     ]
 }

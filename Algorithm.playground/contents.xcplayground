@@ -6,5 +6,6 @@
         <page name='BucketSort'/>
         <page name='QuickSort'/>
         <page name='InsertionSort'/>
+        <page name='BogoSort'/>
     </pages>
 </playground>
