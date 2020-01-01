@@ -1,3 +1,3 @@
-# lib
+# algorithm
 
-A description of this package.
+Contains sorting algorithm written in swift.
