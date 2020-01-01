@@ -56,7 +56,7 @@ final class libTests: XCTestCase {
             let sorted = bogoSorted(array: array)
 
             XCTAssertEqual(sorted.first, 1)
-            XCTAssertEqual(sorted.last, 10)
+            XCTAssertEqual(sorted.last, 5)
         }
     }
 
