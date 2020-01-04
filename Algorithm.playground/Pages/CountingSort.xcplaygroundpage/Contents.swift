@@ -15,7 +15,7 @@ func countingSorted(array: [Int]) -> [Int] {
     }
 
     var tempSorted = [Int]()
-    for i in 0..<itemCountPosition.count {
+    for i in itemCountPosition.indices {
         if itemCountPosition[i] > 0 {
             tempSorted.append(contentsOf: [Int](repeating: i, count: itemCountPosition[i]))
         }
