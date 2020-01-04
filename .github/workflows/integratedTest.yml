@@ -1,4 +1,4 @@
-name: Swift
+name: Integrated Test
 
 on: [push]
 
