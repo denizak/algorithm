@@ -18,7 +18,8 @@ func heapSorted(items: [Int]) -> [Int] {
 
 private func heapify(items: [Int]) -> [Int] {
     var tempItems = items
-    for rootIndex in tempItems.indices.reversed() {
+    var rootIndex = items.count / 2
+    while rootIndex >= 0 {
         let leftIndex = leftChildIndex(of: rootIndex)
         if leftIndex < tempItems.count &&
             tempItems[leftIndex] > tempItems[rootIndex] {
@@ -30,6 +31,8 @@ private func heapify(items: [Int]) -> [Int] {
             tempItems[rightIndex] > tempItems[rootIndex] {
             tempItems.swapAt(rightIndex, rootIndex)
         }
+
+        rootIndex -= 1
     }
     return tempItems
 }
