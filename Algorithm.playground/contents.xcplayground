@@ -9,5 +9,6 @@
         <page name='BogoSort'/>
         <page name='RadixSort'/>
         <page name='CountingSort'/>
+        <page name='HeapSort'/>
     </pages>
 </playground>

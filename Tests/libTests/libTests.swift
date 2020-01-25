@@ -82,6 +82,17 @@ final class libTests: XCTestCase {
         }
     }
 
+    func testHeapSort() {
+        let array = (firstItem...lastItem).shuffled()
+
+        measure {
+            let sorted = heapSorted(items: array)
+
+            XCTAssertEqual(sorted.first, firstItem)
+            XCTAssertEqual(sorted.last, lastItem)
+        }
+    }
+
     static var allTests = [
         ("testQuickSort", testQuickSort),
         ("testMergeSort", testMergeSort),
@@ -90,5 +101,6 @@ final class libTests: XCTestCase {
         ("testBogoSort", testBogoSort),
         ("testRadixSort", testRadixSort),
         ("testCountingSort", testCountingSort),
+        ("testHeapSort", testHeapSort),
     ]
 }
