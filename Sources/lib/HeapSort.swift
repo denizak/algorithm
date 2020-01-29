@@ -2,21 +2,23 @@ typealias Index = Int
 
 func heapSorted(items: [Int]) -> [Int] {
 
-    var tempItems = items
+    var tempItems = maxHeapify(items: items)
     var resultItems = [Int]()
-    for lastIndex in tempItems.indices.reversed() {
+    
+    let indices = items.indices.reversed()
+    for lastIndex in indices {
         let subItems = Array(tempItems[0...lastIndex])
 
         tempItems = heapify(items: subItems)
         tempItems.swapAt(0, lastIndex)
-
-        resultItems.insert(tempItems[lastIndex], at: 0)
+        
+        resultItems.insert(tempItems.removeLast(), at: 0)
     }
 
     return resultItems
 }
 
-private func heapify(items: [Int]) -> [Int] {
+private func maxHeapify(items: [Int]) -> [Int] {
     var tempItems = items
     var rootIndex = items.count / 2
     while rootIndex >= 0 {
@@ -34,6 +36,30 @@ private func heapify(items: [Int]) -> [Int] {
 
         rootIndex -= 1
     }
+    return tempItems
+}
+
+private func heapify(items: [Int]) -> [Int] {
+    var tempItems = items
+    
+    for rootIndex in 0...(items.count / 2) {
+        var largeIndex = rootIndex
+        let leftIndex = leftChildIndex(of: rootIndex)
+        if leftIndex < tempItems.count &&
+            tempItems[leftIndex] > tempItems[rootIndex] {
+            largeIndex = leftIndex
+        }
+
+        let rightIndex = rightChildIndex(of: rootIndex)
+        if rightIndex < tempItems.count &&
+            tempItems[rightIndex] > tempItems[rootIndex] {
+            largeIndex = rightIndex
+        }
+
+        if largeIndex == rootIndex { break }
+        tempItems.swapAt(largeIndex, rootIndex)
+    }
+    
     return tempItems
 }
 
