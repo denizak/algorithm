@@ -11,9 +11,17 @@
 
 Contains sorting algorithm written in swift.
 
+- Insertion sort
+- Bucket sort
+- Counting sort
+- Heap sort
+- Merge sort
+- Radix sort
+- Quick sort
+- Bogo sort
+
 TODO :
 - Flash sort 
-- Heapsort
 - Bubble sort
 - Graph
 - Tree
