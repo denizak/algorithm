@@ -1,9 +1,9 @@
 typealias Index = Int
 
-func heapSorted(items: [Int]) -> [Int] {
+func heapSorted<T: Comparable>(items: [T]) -> [T] {
 
     var tempItems = maxHeapify(items: items)
-    var resultItems = [Int]()
+    var resultItems = [T]()
     
     let indices = items.indices.reversed()
     for lastIndex in indices {
@@ -18,7 +18,7 @@ func heapSorted(items: [Int]) -> [Int] {
     return resultItems
 }
 
-private func maxHeapify(items: [Int]) -> [Int] {
+private func maxHeapify<T: Comparable>(items: [T]) -> [T] {
     var tempItems = items
     var rootIndex = items.count / 2
     while rootIndex >= 0 {
@@ -39,7 +39,7 @@ private func maxHeapify(items: [Int]) -> [Int] {
     return tempItems
 }
 
-private func heapify(items: [Int]) -> [Int] {
+private func heapify<T: Comparable>(items: [T]) -> [T] {
     var tempItems = items
     
     for rootIndex in 0...(items.count / 2) {
