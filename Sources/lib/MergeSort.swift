@@ -1,9 +1,5 @@
 import Foundation
 
-class Merge {
-    func ahoy() -> Int { Int.random(in: 1...10) }
-}
-
 func mergeSorted<T: Comparable>(array: [T]) -> [T] {
     let middleIndex = array.count / 2
     let lhs = Array(array[0..<middleIndex])
