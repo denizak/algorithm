@@ -1,6 +1,6 @@
 import Foundation
 
-func mergeSorted<T: Comparable>(array: [T]) -> [T] {
+public func mergeSorted<T: Comparable>(array: [T]) -> [T] {
     let middleIndex = array.count / 2
     let lhs = Array(array[0..<middleIndex])
     let rhs = Array(array[middleIndex..<array.count])
