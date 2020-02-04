@@ -12,7 +12,7 @@ func bucketSorted(array: [Int]) -> [Int] {
             placeholders[$0] = arraySet.contains($0)
         }
 
-    return (minItem...maxItem)
+    return placeholders.keys
         .filter { placeholders[$0] != nil && placeholders[$0]! }
         .compactMap { $0 }
 }
