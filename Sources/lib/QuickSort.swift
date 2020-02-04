@@ -1,4 +1,4 @@
-func quickSorted<T: Comparable>(array: [T]) -> [T] {
+public func quickSorted<T: Comparable>(array: [T]) -> [T] {
     guard array.count > 1 else { return array }
 
     let pivot = array[array.count/2]
