@@ -1,6 +1,7 @@
 import Foundation
 
 func bucketSorted(array: [Int]) -> [Int] {
+    if array.isEmpty { return array }
     let maxItem = array.max()!
     let minItem = array.min()!
     var placeholders = [Int: Bool]()
@@ -8,12 +9,7 @@ func bucketSorted(array: [Int]) -> [Int] {
     (minItem...maxItem).forEach { placeholders[$0] = false }
     array.forEach { placeholders[$0] = true }
 
-    var sortedArray = [Int]()
-    (minItem...maxItem)
-        .forEach {
-            if let value = placeholders[$0],
-                value { sortedArray.append($0) }
-    }
-
-    return sortedArray
+    return (minItem...maxItem)
+        .filter { placeholders[$0] != nil && placeholders[$0]! }
+        .compactMap { $0 }
 }
