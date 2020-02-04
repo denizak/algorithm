@@ -1,6 +1,6 @@
 typealias Index = Int
 
-func heapSorted<T: Comparable>(items: [T]) -> [T] {
+public func heapSorted<T: Comparable>(items: [T]) -> [T] {
 
     var tempItems = maxHeapify(items: items)
     var resultItems = [T]()
