@@ -1,4 +1,4 @@
-func insertionSorted<T: Comparable>(array: [T]) -> [T] {
+public func insertionSorted<T: Comparable>(array: [T]) -> [T] {
     var tempArray = array
     for index in 1..<array.count {
         var moveIndex = index
