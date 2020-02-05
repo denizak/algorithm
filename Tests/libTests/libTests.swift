@@ -90,6 +90,7 @@ final class libTests: XCTestCase {
 
             XCTAssertEqual(sorted.first, firstItem)
             XCTAssertEqual(sorted.last, lastItem)
+            XCTAssertTrue(sorted.isOrdered, "Sorting failed")
         }
     }
 
