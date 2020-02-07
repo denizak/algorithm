@@ -1,5 +1,5 @@
 import XCTest
-@testable import lib
+@testable import Sort
 
 final class libTests: XCTestCase {
 

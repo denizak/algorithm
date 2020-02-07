@@ -1,6 +1,6 @@
 typealias Index = Int
 
-func heapSorted(items: [Int]) -> [Int] {
+public func heapSorted<T: Comparable>(items: [T]) -> [T] {
 
     var tempItems = items
     let count = tempItems.count / 2 - 1
@@ -16,7 +16,7 @@ func heapSorted(items: [Int]) -> [Int] {
     return tempItems
 }
 
-private func heapify(items: [Int], count: Int, startIndex: Index) -> [Int] {
+private func heapify<T: Comparable>(items: [T], count: Int, startIndex: Index) -> [T] {
 
     var tempItems = items
     var largest = startIndex
