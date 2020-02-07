@@ -7,42 +7,43 @@ typealias Index = Int
 func heapSorted(items: [Int]) -> [Int] {
 
     var resultItems = [Int]()
-    var tempItems = maxHeapify(items: items)
 
-    tempItems.swapAt(0, tempItems.count - 1)
-    resultItems.insert(tempItems.removeLast(), at: 0)
+    var tempItems = items
+    let count = items.count / 2 - 1
+    for i in (0...count).reversed() {
+        tempItems = heapify(items: tempItems, n: items.count, i: i)
+    }
 
-    let indices = tempItems.indices.reversed()
-    for lastIndex in indices {
-        let subItems = Array(tempItems[0...lastIndex])
-
-        tempItems = maxHeapify(items: subItems)
-
-        tempItems.swapAt(0, lastIndex)
+    for i in (0...tempItems.count-1).reversed() {
+        tempItems.swapAt(0, tempItems.count - 1)
         resultItems.insert(tempItems.removeLast(), at: 0)
+
+        tempItems = heapify(items: tempItems, n: i, i: 0)
     }
 
     return resultItems
 }
 
-private func maxHeapify(items: [Int]) -> [Int] {
+private func heapify(items: [Int], n: Int, i: Int) -> [Int] {
+
     var tempItems = items
-    var rootIndex = items.count / 2 - 1
-    while rootIndex >= 0 {
-        let leftIndex = leftChildIndex(of: rootIndex)
-        if leftIndex < tempItems.count &&
-            tempItems[leftIndex] > tempItems[rootIndex] {
-            tempItems.swapAt(leftIndex, rootIndex)
-        }
+    var largest = i
+    let left = leftChildIndex(of: i)
+    let right = rightChildIndex(of: i)
 
-        let rightIndex = rightChildIndex(of: rootIndex)
-        if rightIndex < tempItems.count &&
-            tempItems[rightIndex] > tempItems[rootIndex] {
-            tempItems.swapAt(rightIndex, rootIndex)
-        }
-
-        rootIndex -= 1
+    if left < n && items[left] > items[largest] {
+        largest = left
     }
+    if right < n && items[right] > items[largest] {
+        largest = right
+    }
+
+    if largest != i {
+        tempItems.swapAt(i, largest)
+
+        return heapify(items: tempItems, n: n, i: largest)
+    }
+
     return tempItems
 }
 
